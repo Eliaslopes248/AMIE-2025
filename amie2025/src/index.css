@@ -1,0 +1,23 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+@import "tailwindcss";
+:root{
+
+    --blue: #009CDE;
+    --black: #000000;
+    --white: white;
+    --fonts: "Mona Sans", serif;
+
+}
+
+body{
+    font-family: var(--fonts);
+    transition: .2s;
+    padding: 0;
+    margin: 0;
+}
+
+::-webkit-scrollbar{
+    width: 0px;
+}
+
