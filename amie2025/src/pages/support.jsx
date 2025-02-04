@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Navbar } from './components/navbar';
+import { Navbar } from '../components/navbar';
 import { VscAccount } from "react-icons/vsc";
 // will need to make a script to pull dorthy from database
 // import {getFirestore} on main project FYI

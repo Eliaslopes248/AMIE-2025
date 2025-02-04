@@ -4,6 +4,9 @@ import { FaRegAddressBook } from "react-icons/fa";
 import { TbMoodSick } from "react-icons/tb";
 import { IoChatboxOutline } from "react-icons/io5";
 import { FaUserDoctor } from "react-icons/fa6";
+import { Link } from "react-router-dom";
+import { Support } from "../pages/support";
+import { Appointments } from "../pages/appointments";
 
 /*
 
@@ -43,6 +46,9 @@ export function Navbar({user}){
 
     */
 
+
+
+
     // navbar link objects
     const iconStyle = 'size-[25px]';
     const links = [
@@ -59,17 +65,14 @@ export function Navbar({user}){
         {
             name: "Support",
             component: <IoChatboxOutline className={iconStyle} />,
-            path:'/'
-        },
-        {
-            name: "Symptoms",
-            component: <TbMoodSick className={iconStyle} />,
-            path:'/'
+            path:'/support',
+            route: <Support/>
         },
         {
             name: "Appointments",
             component: <FaRegAddressBook className={iconStyle} />,
-            path:'/'
+            path:'/appointments',
+            route: <Appointments/>
         },
         {
             name: "Account",
@@ -98,9 +101,11 @@ export function Navbar({user}){
                         return <div className="flex gap-[15px] items-center
                                  duration-[.2s]  w-full h-[13%] pl-[25px] hover:bg-[#009CDE]  hover:text-white ">
                             {i.component}
-                            <a href="" className="text-[17px]">
+                            <a href={i.path} className="text-[17px]">
                                 {i.name}
                             </a>
+                           
+                           
                         </div>
                     })
                 }

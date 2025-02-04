@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import './App.css'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import { Home } from './pages/home'
+import { Appointments } from './pages/appointments'
+import { Support } from './pages/support'
 
 function App() {
 
@@ -17,6 +18,9 @@ function App() {
       
           <Routes>
               <Route path='/' element={<Home user={user} />} />
+              <Route path='/appointments' element={<Appointments user={user} />} />
+              <Route path='/support' element={<Support user={user} />} />
+              
           </Routes>
       
       

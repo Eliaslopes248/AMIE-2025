@@ -1,4 +1,4 @@
-import { Navbar } from "./components/navbar"
+import { Navbar } from "../components/navbar"
 import { VscAccount } from "react-icons/vsc";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { useState } from "react";
