@@ -19,7 +19,7 @@ export function Home({user}){
         <Navbar />
 
         {/* Main Content */}
-        <div className="text-center ml-[15vw] items-center flex flex-col justify-center p-10 w-full z-10">
+        <div className="text-center ml-[15vw] flex flex-col justify-center p-10 w-full z-10">
             {/* Welcome Header */}
             <h1 className="text-6xl font-bold text-gray-900">Welcome, {user}</h1>
 
@@ -42,7 +42,7 @@ export function Home({user}){
                     Book a Specialist
                     </button>
                 </Link>
-                <Link to="/support">
+                <Link to="/chatbot">
                     <button className="bg-gray-900 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-gray-800 transition">
                         Talk to Specialist
                     </button>

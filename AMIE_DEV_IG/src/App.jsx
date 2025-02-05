@@ -1,15 +1,16 @@
 import { useState } from 'react'
+import './App.css'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import { Home } from './pages/home'
-import { Appointments } from './pages/appointments'
-import { Support } from './pages/support'
+import { Specialist } from './pages/specialist'
+import Chatbot from './pages/chatbot'
 
 function App() {
 
   // get user object from firebase here
   // pass user to Home as prop
 
-  let user = 'Dorthy';
+  let userName = 'Dorothy';
   
 
   return (
@@ -17,10 +18,9 @@ function App() {
       <BrowserRouter>
       
           <Routes>
-              <Route path='/' element={<Home user={user} />} />
-              <Route path='/appointments' element={<Appointments user={user} />} />
-              <Route path='/support' element={<Support user={user} />} />
-              
+              <Route path='/' element={<Home user={userName} />} />
+              <Route path='/specialist' element={<Specialist />} />
+              <Route path='/chatbot' element={<Chatbot />} />
           </Routes>
       
       
@@ -31,3 +31,4 @@ function App() {
 }
 
 export default App
+
