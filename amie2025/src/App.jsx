@@ -4,6 +4,7 @@ import { Home } from './pages/home'
 import { Appointments } from './pages/appointments'
 import { Support } from './pages/support'
 import Profile from './pages/profile'
+import Map from './pages/specialist'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
               <Route path='/appointments' element={<Appointments user={user} />} />
               <Route path='/support' element={<Support user={user} />} />
               <Route path='/profile' element={<Profile/>}/>
+              <Route path='/specialist' element={<Map user={user} />} />
               
           </Routes>
       
