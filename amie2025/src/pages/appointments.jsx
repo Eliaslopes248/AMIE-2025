@@ -184,9 +184,12 @@ export function Appointments({user}){
                         <div className="w-[10vw] h-full border-0 ml-auto mr-[2vw] flex justify-center items-center">
                             <a href={''} className="border-2 p-[10px] w-[60%] text-center rounded-[20px] bg-[#009CDE] text-white
                              hover:text-black hover:bg-white hover:border-black duration-[.2s]">
+                                <a href="/specialist">
                                 <button className="">
                                     Add
                                 </button>
+                                </a>
+                                
                             </a>
                         </div>
 
@@ -239,10 +242,13 @@ export function Appointments({user}){
 
                                 // if no appointments set
                                 <div className="size-full flex items-center justify-center">
+                                       
+                                       <a href="/specialist">
+                                            <p className="text-gray-400">
+                                                No appointments. <span className="text-[#009CDE] hover:underline">Find specialist.</span>
+                                            </p>
 
-                                    <p className="text-gray-400">
-                                        No appointments. <span className="text-[#009CDE] hover:underline">Find specialist.</span>
-                                    </p>
+                                        </a>
 
 
                                 </div>

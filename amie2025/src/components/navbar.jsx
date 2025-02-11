@@ -8,118 +8,68 @@ import { Link } from "react-router-dom";
 import { Support } from "../pages/support";
 import { Appointments } from "../pages/appointments";
 
-/*
+export function Navbar({ user }) {
+  const iconStyle = 'size-[25px]';
+  const links = [
+    {
+      name: "Home",
+      component: <IoMdHome className={iconStyle} />,
+      path: '/'
+    },
+    {
+      name: "Specialists",
+      component: <FaUserDoctor className={iconStyle} />,
+      path: '/'
+    },
+    {
+      name: "Support",
+      component: <IoChatboxOutline className={iconStyle} />,
+      path: '/support',
+      route: <Support />
+    },
+    {
+      name: "Appointments",
+      component: <FaRegAddressBook className={iconStyle} />,
+      path: '/appointments',
+      route: <Appointments />
+    },
+    {
+      name: "Account",
+      component: <VscAccount className={iconStyle} />,
+      path: '/profile'
+    },
+  ];
 
+  const blue = '#009CDE';
+  const black = '#000000';
+  const white = 'white';
 
-    Here I have created a navbar component, before you start heavily developing 
-    your components, make sure you have inserted this component into your page,
-    when finished with your respective page, make sure you update the links array and change
-    the route path to you pages path. if you need help I (Elias) will help
-
-    how to insert component?? 
-    <Component_name/>
-
-    if theres props ??
-
-    <Component_name  prop_name = {prop_here}  />  You can do more than one prop
-
-
-
-*/
-
-export function Navbar({user}){
-
-    /*
-    PLEASE INSTALL ALL THESE MODULES OR THIS WULL NOT RENDER
-    *** you can copy and paste in your terminal ****
-    npm install
-    npm install firebase
-    npm install react-icons
-    npm install react-router-dom
-    npm install tailwindcss @tailwindcss/vite
-
-    To run server:
-    Cd “project name”
-        Npm run dev
-    To end server:
-        Ctrl + C
-
-    */
-
-
-
-
-    // navbar link objects
-    const iconStyle = 'size-[25px]';
-    const links = [
-        {
-            name: "Home",
-            component: <IoMdHome className={iconStyle} />,
-            path:'/'
-        },
-        {
-            name: "Specialists",
-            component: <FaUserDoctor className={iconStyle} />,
-            path:'/'
-        },
-        {
-            name: "Support",
-            component: <IoChatboxOutline className={iconStyle} />,
-            path:'/support',
-            route: <Support/>
-        },
-        {
-            name: "Appointments",
-            component: <FaRegAddressBook className={iconStyle} />,
-            path:'/appointments',
-            route: <Appointments/>
-        },
-        {
-            name: "Account",
-            component: <VscAccount className={iconStyle} />,
-            path:'/'
-        },
-
-    ]
-
-    // constant colors
-    const blue = '#009CDE'
-    const black = '#000000'
-    const white = 'white'
-
-
-    // retun component
-    return(
-        <div className="top-0 left-0 fixed w-[15vw] md:w-[15vw] h-full border-r-2 border-black flex flex-col">
-            <div className="w-full h-[70px] border-0 border-black flex justify-center items-center bg-[#009CDE] text-white ">
-                <h3 className=" text-[25px] font-bold ">Aggie Doc</h3>
-            </div>
-            <div className="w-full h-[70%] border-0 border-black flex flex-col 
+  return (
+    <div className="top-0 left-0 fixed w-[15vw] md:w-[15vw] h-full border-r-2 border-black flex flex-col">
+      <div className="w-full h-[70px] border-0 border-black flex justify-center items-center bg-[#009CDE] text-white ">
+        <h3 className=" text-[25px] font-bold ">Aggie Doc</h3>
+      </div>
+      <div className="w-full h-[70%] border-0 border-black flex flex-col 
             justify-start gap-[0px] items-start  pt-[50px]">
-                {
-                    links.map(i=>{
-                        return <div className="flex gap-[15px] items-center
+        {
+          links.map((i, index) => (
+            <div key={index} className="flex gap-[15px] items-center
                                  duration-[.2s]  w-full h-[13%] pl-[25px] hover:bg-[#009CDE]  hover:text-white ">
-                            {i.component}
-                            <a href={i.path} className="text-[17px]">
-                                {i.name}
-                            </a>
-                           
-                           
-                        </div>
-                    })
-                }
+              {i.component}
+              <a href={i.path} className="text-[17px]">
+                {i.name}
+              </a>
             </div>
-            <div className="w-full h-[20%] border-0 border-black flex flex-col 
+          ))
+        }
+      </div>
+      <div className="w-full h-[20%] border-0 border-black flex flex-col 
             justify-center items-center">
-                <a href="" className="text-[18px] border-2 rounded-[20px] p-[10px] 
+        <a href="" className="text-[18px] border-2 rounded-[20px] p-[10px] 
                 w-[70%] text-center hover:bg-[#009CDE]  hover:text-white duration-[.2s]">
-                    Log out
-                </a>
-            </div>
-
-        </div>
-    )
-
-
+          Log out
+        </a>
+      </div>
+    </div>
+  );
 }

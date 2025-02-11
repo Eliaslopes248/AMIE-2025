@@ -1,22 +1,44 @@
-import React, { useState } from 'react';
-import { Typography, Avatar, Divider, List, ListItem, Box } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { Typography, Avatar, List, ListItem, Box } from '@mui/material';
 import { VscAccount } from "react-icons/vsc";
-import { Navbar } from './Navbar';
-import './App.css';
+import { Navbar } from '../components/navbar';
+import { db } from '../db';
+import { doc, getDoc } from "firebase/firestore";
 
-function Profile({user}) {
-  const [count, setCount] = useState(0);
+function Profile({ user }) {
+  const [userData, setUserData] = useState(null);
 
-  
+  useEffect(() => {
+    if (user && user.username) {
+      const fetchUserData = async () => {
+        const userDoc = doc(db, "users", user.username);
+        const docSnap = await getDoc(userDoc);
 
+        if (docSnap.exists()) {
+          setUserData(docSnap.data());
+        } else {
+          setUserData({
+            name: 'John Doe',
+            age: '68',
+            phone: '814-993-3950',
+            insurance: 'United Healthcare',
+            address: '123 getWell Dr',
+            email: 'jDoe@gmail.com'
+          });
+        }
+      };
+
+      fetchUserData();
+    }
+  }, [user]);
 
   const data = [
-    { label: 'Name', value: user.name || 'User' },
-    { label: 'Age', value: user.age || 'N/A' },
-    { label: 'Phone', value: user.phone || 'N/A' },
-    { label: 'Insurance', value: user.insurance || 'N/A' },
-    { label: 'Address', value: user.address || 'N/A' },
-    { label: 'Email', value: user.email || 'N/A' }
+    { label: 'Name:', value: userData?.name || '  John Doe' },
+    { label: 'Age:', value: userData?.age || '  68' },
+    { label: 'Phone:', value: userData?.phone || '  814-993-3950' },
+    { label: 'Insurance:', value: userData?.insurance || '  United Healthcare' },
+    { label: 'Address:', value: userData?.address || '  123 getWell Dr' },
+    { label: 'Email:', value: userData?.email || '  jDoe@gmail.com' }
   ];
 
   return (
@@ -38,17 +60,17 @@ function Profile({user}) {
           <Box className="flex flex-col items-end">
             <List className='justify-end'>
               {data.map((item, index) => (
-                  <React.Fragment key={index}>
-                    <ListItem className='mb-8 w-full flex justify-end'>
-                      <Typography variant='h5' className="text-left" sx={{ paddingLeft: '70px' }}>
-                        <strong>{item.label}</strong> <span className='text-grey-400'>{item.value}</span>
-                      </Typography>
-                    </ListItem>
-                    {index < data.length - 1 && (
-                      <Box className="w-full flex justify-end">
-                      </Box>
-                    )}
-                  </React.Fragment>
+                <React.Fragment key={index}>
+                  <ListItem className='mb-8 w-full flex justify-end'>
+                    <Typography variant='h5' className="text-left" sx={{ paddingLeft: '70px' }}>
+                      <strong>{item.label}</strong> <span className='text-grey-400'>{item.value}</span>
+                    </Typography>
+                  </ListItem>
+                  {index < data.length - 1 && (
+                    <Box className="w-full flex justify-end">
+                    </Box>
+                  )}
+                </React.Fragment>
               ))}
             </List>
           </Box>
