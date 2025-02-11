@@ -19,7 +19,8 @@ export function Navbar({ user }) {
     {
       name: "Specialists",
       component: <FaUserDoctor className={iconStyle} />,
-      path: '/'
+      path: '/specialist',
+      route: <Map />
     },
     {
       name: "Support",
@@ -73,3 +74,5 @@ export function Navbar({ user }) {
     </div>
   );
 }
+
+export default Navbar
