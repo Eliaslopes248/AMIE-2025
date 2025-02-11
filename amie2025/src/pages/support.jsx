@@ -9,6 +9,8 @@ import { VscAccount } from "react-icons/vsc";
     simulation data if you want of course,
 */
 
+//use the following prompt in the demo: "What should I do in the meantime while I wait to see the doctor about my symptoms?"
+
 export function Support({ user }) {
     const [messages, setMessages] = useState([]); // State to store chat messages
     const [input, setInput] = useState(''); // State to store user input
@@ -16,7 +18,7 @@ export function Support({ user }) {
 
     // Fake user data for demonstration purposes
     const fakeUser = {
-        name: 'John Doe',
+        name: 'Dorothy',
         symptoms: ['cough', 'fever', 'headache'],
     };
 
@@ -37,25 +39,10 @@ export function Support({ user }) {
     };
 
     // Function to simulate fetching a chatbot response
+    //use the following prompt in the demo: "What should I do in the meantime while I wait to see the doctor about my symptoms?"
     const fetchChatbotResponse = async (input) => {
-        // Remedies and specialists for different symptoms
-        const remedies = {
-            cough: 'Drink warm fluids and rest.',
-            fever: 'Take paracetamol and stay hydrated.',
-            headache: 'Rest in a dark room and take ibuprofen.',
-        };
-
-        const specialists = {
-            cough: 'General Practitioner',
-            fever: 'General Practitioner',
-            headache: 'Neurologist',
-        };
-
-        // Generate a response based on the user's symptoms
-        const userSymptoms = fakeUser.symptoms;
-        const response = userSymptoms.map(symptom => {
-            return `For ${symptom}, ${remedies[symptom]} You should see a ${specialists[symptom]}.`;
-        }).join(' ');
+        // Hardcoded response
+        const response = "1. **Stay Hydrated**: Drink plenty of water; avoid sugary or caffeinated drinks.\n\n2. **Monitor Blood Sugar**: If you can, check your blood sugar levels.\n\n3. **Eat Healthily**: Focus on a balanced diet low in sugar.\n\n4. **Manage Stress**: Practice stress-reducing activities like meditation.\n\n5. **Exercise Moderately**: Engage in light physical activity but avoid overexertion.\n\n6. **Care for Hands and Feet**: Protect them and check for any unnoticed injuries.\n\n7. **Track Symptoms**: Keep a record of your symptoms for your doctor.\n\n8. **Seek Help if Necessary**: If symptoms worsen, seek immediate medical attention.\n\nThese steps are general and should not replace professional medical advice. See a healthcare provider as soon as you can.";
 
         return response;
     };
